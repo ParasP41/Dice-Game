@@ -6,8 +6,8 @@ export default function PlayPage() {
     const [score, setScore] = useState(0);
     const [randomNumber, setRandomNumber] = useState()
     const handlerDiceRoll = () => {
-         const rn= Math.floor(Math.random() * 6) + 1;
-         setRandomNumber(rn);
+        const rn = Math.floor(Math.random() * 6) + 1;
+        setRandomNumber(rn);
     }
 
     const handlerScore = () => {
@@ -25,9 +25,9 @@ export default function PlayPage() {
     }
     return (
         <>
-            <div className='flex items-center  my-4 justify-between'>
+            <div className='flex items-center my-4 justify-between'>
                 <div className='mx-6'>
-                    <h1 className='text-4xl text-center font-bold'>{score}</h1>
+                    <h1 className='text-4xl md:text-center font-bold'>{score}</h1>
                     <p className='text-2xl font-semibold'>Total Score</p>
                 </div>
                 <div>
@@ -40,12 +40,14 @@ export default function PlayPage() {
                 </div>
             </div>
             <div className="flex items-center my-9 justify-center flex-col">
-                {randomNumber ? <img  onClick={handlerDiceRoll} src={`./images/dice_${randomNumber}.png`} alt="" />:<img onClick={handlerDiceRoll} src="./images/dice_1.png" alt="" />}
+                <div>
+                    {randomNumber ? <img onClick={handlerDiceRoll} src={`./images/dice_${randomNumber}.png`} alt="" /> : <img onClick={handlerDiceRoll} src="./images/dice_1.png" alt="" />}
+                </div>
                 <p className='font-semibold text-xl'>Click On The Dice to Roll</p>
                 <button type="button" onClick={handlerScore} className="text-black w-[14rem] my-4 bg-white border-solid border-2 border-black  focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-9 py-3 me-2 mb-2">Reset Score</button>
                 <button type="button" onClick={handlerRules} className="text-white w-[14rem] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-9 py-3 me-2 mb-2">{rulesText} Rules</button>
             </div>
-            {rules && <div className="block  p-6 bg-red-100 border w-[45rem] mx-6 border-gray-200 rounded-lg shadow">
+            {rules && <div className="block  p-6 bg-red-100 border md:w-[45rem] mx-6 border-gray-200 rounded-lg shadow">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">How to play dice game</h5>
                 <p className="font-normal text-gray-700">Select any number</p>
                 <p className="font-normal text-gray-700">Click on dice image</p>
